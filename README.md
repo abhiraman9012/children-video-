@@ -250,11 +250,8 @@ You can run this project directly in Google Colab using the following notebook c
 !git clone https://github.com/abhiraman9012/children-video-.git
 %cd children-video-
 
-# Install required dependencies
-!pip install google-generativeai
-!pip install IPython pillow
-!pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
-!pip install kokoro>=0.9.2 soundfile
+# Install required dependencies using requirements.txt
+!pip install -r requirements.txt
 
 # Install system dependencies
 !apt-get update
