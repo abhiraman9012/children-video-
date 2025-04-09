@@ -195,24 +195,45 @@ divided_code/
 
 ## Installation and Requirements
 
+### Installation with pip
+
+You can install all required Python dependencies using the provided `requirements.txt` file:
+
+```bash
+pip install -r requirements.txt
+```
+
 ### Required Libraries
+
+The requirements.txt file includes the following dependencies:
 
 ```python
 # Core libraries
-google-generativeai
-IPython
-pillow
+google-generativeai>=0.6.0
+IPython>=8.10.0
+Pillow>=10.0.0
 
 # Google Drive integration
-google-auth
-google-auth-oauthlib
-google-auth-httplib2
-google-api-python-client
+google-auth>=2.28.0
+google-auth-oauthlib>=1.2.0
+google-auth-httplib2>=0.1.1
+google-api-python-client>=2.120.0
 
 # Audio processing
 kokoro>=0.9.2
-soundfile
+soundfile>=0.12.1
+numpy>=1.24.0
 
+# Media processing
+matplotlib>=3.7.0
+requests>=2.28.2
+```
+
+### System Dependencies
+
+You will also need to install the following system dependencies:
+
+```
 # System dependencies
 ffmpeg (system installation required)
 espeak-ng (for speech synthesis)
