@@ -218,6 +218,85 @@ ffmpeg (system installation required)
 espeak-ng (for speech synthesis)
 ```
 
+## Google Colab Notebook
+
+You can run this project directly in Google Colab using the following notebook code. Copy this code into a new Colab notebook to get started:
+
+```python
+# AI-Powered Children's Story Video Generator - Google Colab Notebook
+
+# Clone the repository
+!git clone https://github.com/abhiraman9012/children-video-.git
+%cd children-video-
+
+# Install required dependencies
+!pip install google-generativeai
+!pip install IPython pillow
+!pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+!pip install kokoro>=0.9.2 soundfile
+
+# Install system dependencies
+!apt-get update
+!apt-get install -y ffmpeg
+!apt-get install -y espeak-ng
+
+# Set up Google Drive for saving outputs
+from google.colab import drive
+drive.mount('/content/drive')
+
+# Create a folder for outputs
+!mkdir -p /content/outputs
+
+# Import necessary modules from the project
+import os
+import sys
+
+# Set up your API key
+import os
+os.environ["GEMINI_API_KEY"] = "YOUR_GEMINI_API_KEY"  # Replace with your actual Gemini API key
+
+# Run the application
+print("Setting up modules...")
+
+# Execute the main file with all modules imported
+exec(open("setup.py").read())
+exec(open("api_config.py").read())
+exec(open("google_drive_utils.py").read())
+exec(open("prompt_generation.py").read())
+exec(open("retry_mechanisms.py").read())
+exec(open("collect_story.py").read())
+exec(open("generate_part1.py").read())
+exec(open("generate_part2.py").read())
+exec(open("generate_part3.py").read())
+exec(open("generate_part4.py").read())
+exec(open("generate_part5.py").read())
+exec(open("generate_part6.py").read())
+exec(open("google_drive_upload.py").read())
+exec(open("direct_download.py").read())
+exec(open("seo_metadata.py").read())
+exec(open("thumbnail_generation.py").read())
+
+print("Starting story generation...")
+# Call the main story generation function
+retry_story_generation(use_prompt_generator=True)
+print("Story generation complete!")
+```
+
+### Using the Colab Notebook
+
+1. Create a new notebook in Google Colab
+2. Copy and paste the code above
+3. Replace `YOUR_GEMINI_API_KEY` with your actual Gemini API key
+4. Run each cell in sequence
+5. When prompted, authenticate with Google Drive to save your outputs
+6. The generated video will be available in your Google Drive and also displayed in the notebook
+
+### Troubleshooting Colab Issues
+
+- If you encounter memory errors, try using a Colab Pro subscription for more resources
+- For TTS issues, you may need to restart the runtime after installing dependencies
+- To save generated content permanently, make sure to mount Google Drive successfully
+
 ## Usage
 
 ### Basic Usage
