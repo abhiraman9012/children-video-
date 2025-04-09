@@ -261,9 +261,8 @@ You can run this project directly in Google Colab using the following notebook c
 !apt-get install -y ffmpeg
 !apt-get install -y espeak-ng
 
-# Set up Google Drive for saving outputs
-from google.colab import drive
-drive.mount('/content/drive')
+# Note: This code already includes Google Drive API functionality through google_drive_upload.py
+# No additional drive mounting is needed
 
 # Create a folder for outputs
 !mkdir -p /content/outputs
@@ -309,14 +308,14 @@ print("Story generation complete!")
 2. Copy and paste the code above
 3. Replace `YOUR_GEMINI_API_KEY` with your actual Gemini API key
 4. Run each cell in sequence
-5. When prompted, authenticate with Google Drive to save your outputs
-6. The generated video will be available in your Google Drive and also displayed in the notebook
+5. The code will use its built-in Google Drive API functionality (in google_drive_upload.py) to handle uploads
+6. The generated video will be displayed in the notebook and can also be downloaded directly
 
 ### Troubleshooting Colab Issues
 
 - If you encounter memory errors, try using a Colab Pro subscription for more resources
 - For TTS issues, you may need to restart the runtime after installing dependencies
-- To save generated content permanently, make sure to mount Google Drive successfully
+- If Google Drive API uploads fail, check your API credentials or use the direct download option
 
 ## Usage
 
