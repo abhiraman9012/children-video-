@@ -1,9 +1,24 @@
-# 1. Install required libraries
-!pip install -q google-generativeai IPython
-!pip install -q pillow
-!pip install -q google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
-!pip install -q kokoro>=0.9.2 soundfile
-!apt-get -qq -y install espeak-ng > /dev/null 2>&1
+# 1. Required libraries - these should be installed using requirements.txt before running
+# Do not attempt installation here to avoid issues with exec()
+# If you need to install these libraries, use:
+# pip install -r requirements.txt
+
+# Check if we're in a Colab environment
+try:
+    import google.colab
+    IN_COLAB = True
+except ImportError:
+    IN_COLAB = False
+
+# Only attempt system installations in Colab environment
+if IN_COLAB:
+    import subprocess
+    try:
+        subprocess.check_call(['apt-get', '-qq', '-y', 'install', 'espeak-ng'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        print("Installed system dependencies")
+    except Exception as e:
+        print(f"Warning: Could not install system dependencies: {e}")
+
 
 # 2. Import libraries
 import os
